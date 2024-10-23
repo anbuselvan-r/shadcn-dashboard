@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { cn } from "@/lib/utils";
 import "./globals.css";
+import SideNavbar from "@/components/SideNavbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning> 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn("min-h-screen w-full bg-white text-black flex", `${geistSans.variable} ${geistMono.variable} antialiased`, 
+          {"debug-screens": process.env.NODE_ENV === "development"}
+        )}
       >
-        {children}
+        {/* sidebar */}
+        {/* <p className="border">SideBar</p> */}
+        <SideNavbar/>
+        {/* mainpage */}
+        <div className="p-8 w-full">{children}</div>
       </body>
     </html>
   );
