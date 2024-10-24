@@ -14,7 +14,7 @@ import { useWindowHeight } from '@react-hook/window-size'
 const SideNavbar = () => {
   const onlyHeight = useWindowHeight();
   const mobileWidth = onlyHeight < 768;
-  const [isCollapsed, setIsCollapsed] = useState(mobileWidth); // Set initial state based on mobileWidth
+  const [isCollapsed, setIsCollapsed] = useState(false); // Set initial state based on mobileWidth
 
   // Effect to toggle isCollapsed when mobileWidth changes
   useEffect(() => {
@@ -35,7 +35,7 @@ const SideNavbar = () => {
         </div>
       )}
       <Nav
-        isCollapsed={isCollapsed} // Use the isCollapsed state directly
+        isCollapsed={mobileWidth ? true : isCollapsed} // Use the isCollapsed state directly
         links={[
           {
             title: "Dashboard",
