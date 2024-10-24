@@ -3,7 +3,6 @@ import Card, { CardContent, CardProps } from "@/components/Card";
 import PageTitle from "@/components/PageTitle";
 import SalesCard, { SalesProps } from "@/components/SalesCard";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
-import Image from "next/image";
 
 const cardData: CardProps[] = [
   {

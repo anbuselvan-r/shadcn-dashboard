@@ -4,17 +4,6 @@ import PageTitle from '@/components/PageTitle'
 import { ColumnDef } from '@tanstack/react-table'
 import React from 'react'
 
-type Props = {}
-
-export default function UserPage({}: Props) {
-  return (
-    <div className="flex flex-col gap-5 w-full">
-      <PageTitle title="Users"/>
-      <DataTable columns={columns} data={data}/>
-    </div>
-  )
-}
-
 type Payment = {
   name: string
   email: string
@@ -22,7 +11,7 @@ type Payment = {
   method: string
 }
 
-export const data: Payment[] = [
+const data: Payment[] = [
   {
     "name": "Alice Smith",
     "email": "alice.smith@example.com",
@@ -146,7 +135,7 @@ export const data: Payment[] = [
 ]
 
 
-export const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "name",
     header: "Name",
@@ -171,3 +160,13 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Method",
   },
 ]
+
+
+export default function UserPage() {
+  return (
+    <div className="flex flex-col gap-5 w-full">
+      <PageTitle title="Users"/>
+      <DataTable columns={columns} data={data}/>
+    </div>
+  )
+}
