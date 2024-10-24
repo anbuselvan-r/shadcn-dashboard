@@ -2,8 +2,6 @@
 import React from 'react'
 import { BarChart as BarGraph, ResponsiveContainer, XAxis, YAxis, Bar } from 'recharts'
 
-type Props = {}
-
 const data = [
     {
         "name": "Jan",
@@ -56,7 +54,7 @@ const data = [
 ]
 
 
-export default function BarChart({ }: Props) {
+export default function BarChart() {
     return (
         <ResponsiveContainer width={'100%'} height={350}>
             <BarGraph data={data}>
